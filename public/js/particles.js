@@ -166,20 +166,16 @@ function animate() {
     let targetLookAtY = 0;
 
     if (scrollPercent < 0.1) {
-        // Hero: Frontal
         targetCamZ = 6;
     } else if (scrollPercent < 0.5) {
-        // Plate: Beauty Angle
         targetCamY += 3;
         targetCamZ = 5.5;
         targetLookAtY = -0.5;
     } else if (scrollPercent < 0.8) {
-        // Table: Side Perspective
         targetCamX += 4;
         targetCamY += 2;
         targetCamZ = 6.5;
     } else {
-        // QR: Scanner View
         targetCamX = 0;
         targetCamY = 0;
         targetCamZ = 5;
@@ -192,11 +188,7 @@ function animate() {
     const currentLookAt = new THREE.Vector3(0, targetLookAtY, 0);
     camera.lookAt(currentLookAt);
 
-    // Dynamic Rotation logic
-    const rotationBase = scrollPercent > 0.9 ? 0 : time;
-    points.rotation.y = rotationBase * (0.1 + (1 - scrollPercent) * 0.4);
-    points.rotation.z = time * 0.05 * (1 - scrollPercent);
-
+    // --- Morphing Logic ---
     const posAttr = points.geometry.attributes.position;
     let targetA, targetB, t;
 
@@ -216,10 +208,20 @@ function animate() {
 
     const easedT = t * t * (3 - 2 * t);
 
+    // --- Stabilized Rotation Logic ---
+    const slowTime = Date.now() * 0.00005; // Even slower
+    let rotationStrength = 1.0;
+    if (easedT < 0.3 || easedT > 0.7) {
+        rotationStrength = 0.05; // Nearly still when resting
+    }
+    if (scrollPercent > 0.95) rotationStrength = 0;
+
+    points.rotation.y = slowTime * rotationStrength * 0.5;
+    points.rotation.z = slowTime * rotationStrength * 0.1;
+
     for (let i = 0; i < particleCount * 3; i++) {
         const cur = posAttr.array[i];
         const dest = targetA[i] + (targetB[i] - targetA[i]) * easedT;
-        // Pulse effect for Soul in hero
         let pulse = 0;
         if (scrollPercent < 0.1) {
             pulse = Math.sin(time * 2 + i) * 0.01;

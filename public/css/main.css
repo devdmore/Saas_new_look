@@ -2,7 +2,7 @@
 
 :root {
   /* Colors */
-  --color-void: #000000;
+  --color-void: #080808;
   --color-bone: #ffffff;
   --color-ash: #bdbdbd;
   --color-smoke: #9a9a9a;
@@ -92,7 +92,7 @@
 }
 
 body {
-  background-color: var(--color-void);
+  background-color: #080808;
   color: var(--color-bone);
   font-family: var(--font-acronym);
   font-weight: var(--font-weight-regular);
@@ -277,6 +277,8 @@ ul {
   height: 100vh;
   z-index: 0;
   pointer-events: none;
+  /* Add a very subtle radial gradient to prevent the #080808 from feeling flat */
+  background: radial-gradient(circle at center, #0c0c0c 0%, #080808 100%);
 }
 
 .card {
@@ -344,6 +346,70 @@ ul {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--spacing-24);
+}
+
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-cards);
+  padding: var(--spacing-36);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+}
+
+.testimonial-quote {
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-extralight);
+  line-height: 1.4;
+  color: var(--color-bone);
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+}
+
+.author-info h4 {
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-bone);
+}
+
+.author-info p {
+  font-size: var(--text-sm);
+  color: var(--color-smoke);
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-60);
+}
+
+@media (max-width: 768px) {
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: var(--spacing-24);
+}
+
+.faq-question {
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-12);
+  color: var(--color-bone);
+}
+
+.faq-answer {
+  color: var(--color-smoke);
+  font-size: var(--text-base);
+  line-height: 1.6;
 }
 
 .cta-section {
