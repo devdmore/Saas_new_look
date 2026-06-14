@@ -5,7 +5,8 @@ const haikus = require('./haikus.json');
 const port = process.env.PORT || 3000;
 
 app.use(express.static('public'))
-app.use('/node_modules', express.static('node_modules'));
+// Only serve the specific build directory for Three.js to avoid exposing node_modules
+app.use('/js/lib/three', express.static('node_modules/three/build'));
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
