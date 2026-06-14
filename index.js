@@ -5,6 +5,7 @@ const haikus = require('./haikus.json');
 const port = process.env.PORT || 3000;
 
 app.use(express.static('public'))
+app.use('/node_modules', express.static('node_modules'));
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
