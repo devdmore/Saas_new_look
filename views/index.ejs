@@ -1,26 +1,142 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Haikus for Mona</title>
-    <link href="/css/main.css" rel="stylesheet" type="text/css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:title" content="Haikus for Mona">
-    <meta property="og:description" content="Some of the best haikus you'll ever read about our rescue dog June">
-    <meta property="og:image" content="/images/sunlight.jpg">
-  </head>
-  <body>
-    <h1>Haikus for Mona</h1>
-    <div>
-      <% for(var i=0; i < haikus.length; i++) { %>
-        <img
-          class="mona-images"
-          src="images/<%= haikus[i].image %>" />
-        <div 
-          class="haiku-containers">
-          <p 
-            class="haikus"
-          ><%- haikus[i].text %></p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mumbai Resto — The Future of Hospitality</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <canvas id="particle-canvas"></canvas>
+
+    <nav class="nav">
+        <div class="logo" style="font-weight: 600; font-size: 18px; display: flex; align-items: center; gap: 8px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-plum-voltage)" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+            MUMBAI RESTO
         </div>
-      <% } %>
-    </div>
+        <div class="nav-links">
+            <a href="#features" class="nav-link">Features</a>
+            <a href="#pricing" class="nav-link">Pricing</a>
+            <a href="#faq" class="nav-link">FAQ</a>
+            <a href="/admin/login" class="nav-link">Log In</a>
+            <a href="/register" class="btn-primary" style="margin-left: 20px;">Get Started</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <span class="eyebrow" style="color: #ffffff;">STOP MANAGING KNOWLEDGE. START USING IT.</span>
+                <h1 class="display-headline">Your restaurant deserves a digital soul.</h1>
+                <p class="body-text">QR table ordering, online bookings, beautiful storefronts, and a powerful admin dashboard. Everything Indian restaurants need to thrive in the digital age.</p>
+                <div style="display: flex; gap: 15px;">
+                    <a href="/register" class="btn-primary">Start Your Free Trial</a>
+                    <button class="btn-ghost" style="border-radius: 24px; border: 1px solid var(--color-ash); color: #ffffff; background: transparent; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; padding: 14px 16px; cursor: pointer;">See How It Works</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="section">
+            <span class="eyebrow">Features</span>
+            <h2 class="display-headline" style="font-size: var(--text-display); margin-bottom: 60px;">Everything your restaurant needs.</h2>
+
+            <div class="grid">
+                <div class="card">
+                    <span class="eyebrow" style="color: var(--color-lichen);">01</span>
+                    <h3 style="font-size: 24px; margin-bottom: 12px; font-weight: 600;">QR Table Ordering</h3>
+                    <p style="color: var(--color-smoke); font-size: 15px;">Diners scan, browse, and order directly from their phone. No app download needed.</p>
+                </div>
+                <div class="card">
+                    <span class="eyebrow" style="color: var(--color-amber-spark);">02</span>
+                    <h3 style="font-size: 24px; margin-bottom: 12px; font-weight: 600;">Table Booking System</h3>
+                    <p style="color: var(--color-smoke); font-size: 15px;">Manage availability and party sizes effortlessly with instant confirmation.</p>
+                </div>
+                <div class="card">
+                    <span class="eyebrow" style="color: var(--color-plum-voltage);">03</span>
+                    <h3 style="font-size: 24px; margin-bottom: 12px; font-weight: 600;">Payments Built In</h3>
+                    <p style="color: var(--color-smoke); font-size: 15px;">Accept UPI, cards, and wallets via Razorpay. Zero platform commission.</p>
+                </div>
+                <div class="card">
+                    <span class="eyebrow">04</span>
+                    <h3 style="font-size: 24px; margin-bottom: 12px; font-weight: 600;">Kitchen Display</h3>
+                    <p style="color: var(--color-smoke); font-size: 15px;">Real-time order queue for your kitchen staff. Track fulfillment instantly.</p>
+                </div>
+                <div class="card">
+                    <span class="eyebrow">05</span>
+                    <h3 style="font-size: 24px; margin-bottom: 12px; font-weight: 600;">5 Beautiful Themes</h3>
+                    <p style="color: var(--color-smoke); font-size: 15px;">Choose from Classic to Zen Minimal. Each template is mobile-optimized.</p>
+                </div>
+                <div class="card">
+                    <span class="eyebrow">06</span>
+                    <h3 style="font-size: 24px; margin-bottom: 12px; font-weight: 600;">Multi-Branch</h3>
+                    <p style="color: var(--color-smoke); font-size: 15px;">Manage multiple outlets from one dashboard with unified reporting.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="section" style="text-align: center;">
+            <span class="eyebrow">Pricing</span>
+            <h2 class="display-headline" style="font-size: var(--text-display);">Simple, transparent pricing.</h2>
+            <p class="body-text" style="margin: 0 auto 60px;">Start free for 14 days. No credit card required. Zero commission on orders.</p>
+
+            <div class="grid">
+                <div class="card">
+                    <h3 style="font-size: 18px; margin-bottom: 10px;">Free</h3>
+                    <div style="font-size: 36px; font-weight: 200; margin-bottom: 24px;">₹0<span style="font-size: 14px; color: var(--color-smoke);">/month</span></div>
+                    <ul style="text-align: left; color: var(--color-smoke); font-size: 14px; margin-bottom: 30px;">
+                        <li>• 1 branch</li>
+                        <li>• 30 menu items</li>
+                        <li>• 10 tables</li>
+                        <li>• Email support</li>
+                    </ul>
+                    <a href="/register?plan=free" class="btn-primary" style="width: 100%;">Get Started</a>
+                </div>
+                <div class="card" style="border-color: var(--color-plum-voltage);">
+                    <span class="eyebrow" style="margin-bottom: 8px;">Most Popular</span>
+                    <h3 style="font-size: 18px; margin-bottom: 10px;">Pro</h3>
+                    <div style="font-size: 36px; font-weight: 200; margin-bottom: 24px;">₹999<span style="font-size: 14px; color: var(--color-smoke);">/month</span></div>
+                    <ul style="text-align: left; color: var(--color-smoke); font-size: 14px; margin-bottom: 30px;">
+                        <li>• 3 branches</li>
+                        <li>• Unlimited items</li>
+                        <li>• Custom domain</li>
+                        <li>• Priority support</li>
+                    </ul>
+                    <a href="/register?plan=pro" class="btn-primary" style="width: 100%;">Start Free Trial</a>
+                </div>
+                <div class="card">
+                    <h3 style="font-size: 18px; margin-bottom: 10px;">Starter</h3>
+                    <div style="font-size: 36px; font-weight: 200; margin-bottom: 24px;">₹499<span style="font-size: 14px; color: var(--color-smoke);">/month</span></div>
+                    <ul style="text-align: left; color: var(--color-smoke); font-size: 14px; margin-bottom: 30px;">
+                        <li>• 1 branch</li>
+                        <li>• 100 menu items</li>
+                        <li>• All themes</li>
+                        <li>• 3 staff accounts</li>
+                    </ul>
+                    <a href="/register?plan=starter" class="btn-primary" style="width: 100%;">Start Free Trial</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="text-align: center; border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 40px; padding: 80px 40px;">
+            <h2 class="display-headline" style="font-size: 48px;">Ready to digitize your restaurant?</h2>
+            <p class="body-text" style="margin: 0 auto 36px;">Join hundreds of Indian restaurants already using Mumbai Resto. Start your 14-day free trial today.</p>
+            <a href="/register" class="btn-primary" style="font-size: 18px; padding: 20px 40px;">Start Your Free Trial</a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <div>© 2026 MUMBAI RESTO. MADE WITH ❤️ IN INDIA.</div>
+            <div style="display: flex; gap: 24px;">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/particles.js"></script>
+</body>
 </html>
